@@ -4,14 +4,51 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <title>that-one-big-story</title>
-<!-- CSS -->
-<link href="css/style.css" rel="stylesheet">
+  <!-- CSS -->
+<link href="../css/styleMain.css" rel="stylesheet">
 
 </head>
 
 <body>
+ <style> 
+#box {
+    background-color: whitesmoke;
+    margin: auto;
+    width: 50%;
+    border: 5px solid lightgrey;
+    padding: 25px;
+    text-align: center;
+    position:relative;
+    top:50px;
+    border-radius:10px;
+}
+#buttonStoryChoices {
+    position:relative;
+    top: 100px;
+    margin:auto;
+    left:25%;
+    border-radius:10px;
+}
+
+ </style>
+<div id="box">
+    <h3> Chapter </h3>
+    The story goes in this box. 
+</div>
+<element id="buttonStoryChoices" >
+    <div class="span9 btn-block col-md-4 center-text">
+        <button class="btn btn-large btn-block btn-primary btn-space" type="button">Block level button</button>
+    </div>
+    <div class="span9 btn-block col-md-4 center-text">
+        <button class="btn btn-large btn-block btn-primary btn-space" type="button">Block level button</button>
+    </div>
+    <div class="span9 btn-block col-md-4 center-text">
+        <button class="btn btn-large btn-block btn-primary" type="button">Block level button</button>
+    </div>
+</element>
 
     <!-- js files -->
     <script src="index.js"></script>

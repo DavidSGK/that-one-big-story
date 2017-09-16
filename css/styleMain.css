@@ -1,0 +1,13 @@
+.btn-block {
+    max-width: 650px;
+}
+
+.btn-space{
+    margin-right: 15px;
+}
+
+.btn-large, .btn-space, .btn-primary:visited, .btn-block, .btn-primary:hover, .btn-primary:active, .btn-primary {
+    background-color: lightgray !important;
+    border-color: lightgrey !important;
+    border-radius: 10px !important;
+}
