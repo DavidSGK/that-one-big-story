@@ -1,19 +1,20 @@
-var mainApp = angular.module('myApp',[]);
+var mainApp = angular.module('mainApp',[]);
 
-mainApp.controller('myController', ['$http', function($http){
+mainApp.controller('MainCtrl', ['$http', '$scope', function($http, $scope){
 
-	this.currentSection;
-	this.currentSuggestions = [];
-	this.currentRating;
+	$scope.currentSection;
+	$scope.currentSuggestions = [];
+	$scope.currentRating;
 
 	angular.element(document).ready(function() {
-		
-	})
+		alert();
+	});
 
-	this.postTreeData(key, value) {
+	$scope.postTreeData = function(key, value) {
+
 	}
 
-	this.getTreeData(key) {
+	$scope.getTreeData = function(key) {
 	/* get template
   	$http.get('someDataUrl').then(function(data){
     	this.value = data;
@@ -21,27 +22,25 @@ mainApp.controller('myController', ['$http', function($http){
   	*/
 	}
 
-	this.changePage(value) {
+	$scope.changePage = function(value) {
 
 	}
-
-
 
 	// UI Functionality
 
-	this.reateUp() {
+	$scope.reateUp = function() {
 
 	}
 
-	this.rateDown() {
+	$scope.rateDown = function() {
 
 	}
 
-	this.report() {
+	$scope.report = function() {
 
 	}
 
-	this.changeFont(size) {
+	$scope.changeFont = function(size){
 
 	}
 
