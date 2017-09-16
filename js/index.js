@@ -6,11 +6,14 @@ mainApp.controller('myController', ['$http', function($http){
 	this.currentSuggestions = [];
 	this.currentRating;
 
+	angular.element(document).ready(function() {
+		
+	})
 
 	this.postTreeData(key, value) {
 	}
 
-	this.getTreeData() {
+	this.getTreeData(key) {
 	/* get template
   	$http.get('someDataUrl').then(function(data){
     	this.value = data;
@@ -21,7 +24,6 @@ mainApp.controller('myController', ['$http', function($http){
 	this.changePage(value) {
 
 	}
-
 
 
 
