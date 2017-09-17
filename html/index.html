@@ -36,6 +36,24 @@
             border-radius:10px;
         }
     </style>
+
+    <div id="myModal" class="modal">
+
+  	<!-- Modal content -->
+  	<div class="modal-content">
+    	<span class="close" ng-click="closeModal()">&times;</span>
+    	<div class="form-group">
+    		<h3>Login/Register</h3>
+  			<label for="usr">Username:</label>
+  			<input type="text" class="form-control" id="usr">
+		</div>
+		<div class="form-group">
+  			<label for="pwd">Password:</label>
+ 			<input type="password" class="form-control" id="pwd">
+		</div>
+  	</div>
+
+	</div>
     
     <div class="container-fluid"  ng-style="storyStyle">
         <div class="row">
@@ -61,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><button ng-click="openModal()">Login</button></div>
         </div>
     </div>
 

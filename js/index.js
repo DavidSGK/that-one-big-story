@@ -111,4 +111,18 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 		}
 	}
 
+	$scope.openModal = function() {
+		document.getElementById('myModal').style.display = "block";
+	}
+
+	$scope.closeModal = function() {
+		document.getElementById('myModal').style.display = "none";
+	}
+
 }]);
+
+window.onclick = function(event) {
+    if (event.target == document.getElementById('myModal')) {
+        document.getElementById('myModal').style.display = "none";
+    }
+}
