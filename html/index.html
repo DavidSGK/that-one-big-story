@@ -11,6 +11,8 @@
 <title>that-one-big-story</title>
   <!-- CSS -->
 <link href="../css/styleMain.css" rel="stylesheet">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<link rel="stylesheet" href="fontawesome-stars.css">
 
 </head>
 <body ng-controller="MainCtrl">
@@ -53,14 +55,14 @@
 
 	</div>
     
-    <div class="container-fluid" ng-style="storyStyle" ng-click="sidebarExpanded = false;">
+    <div class="container-fluid"  ng-style="storyStyle">
         <div class="row">
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
             	<div id="numberHolder">
             		{{currentPageNumber}}
             	</div>
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <div style="top:58px;left:70px" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <div id="story">
                     <div id="box">
                         <h3> Chapter </h3>

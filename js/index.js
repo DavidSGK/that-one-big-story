@@ -17,7 +17,7 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 
 	$scope.currentSection;
 	$scope.currentSuggestions = ['lmao', 'cool', 'nice'];
-	$scope.currentPageNumber = 0;
+	$scope.currentPageNumber = 1;
 	$scope.currentRating;
 	$scope.storyContent = 'A narrative or story is a report of connected events, real or imaginary, presented in a sequence of written or spoken words, or still or moving images,[1][2] or both. The word derives from the Latin verb narrare, "to tell", which is derived from the adjective gnarus, "knowing" or "skilled".[3] Narrative can be organized in a number of thematic or formal categories: non-fiction (such as definitively including creative non-fiction, biography, journalism, transcript poetry, and historiography); fictionalization of historical events (such as anecdote, myth, legend, and historical fiction); and fiction proper (such as literature in prose and sometimes poetry, such as short stories, novels, and narrative poems and songs, and imaginary narratives as portrayed in other textual forms, games, or live or recorded performances).';
 
