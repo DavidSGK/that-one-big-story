@@ -17,8 +17,6 @@
 <body ng-controller="MainCtrl">
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
     <script src="../js/index.js"></script>
-
-
   	<!-- Modal content -->
     <div id="myModal" class="modal">
       <div class="modal-content">
@@ -66,7 +64,7 @@
                     <p ng-repeat="paragraph in storyContent track by $index">{{paragraph}}</p>
                 </div>
                 <div id="choices">
-                    <button class="btn btn-block btn-primary" ng-repeat="choice in choices" ng-click="changePage($index)" type="button">{{choice}}</button>
+                    <button class="btn btn-block btn-primary buttonChoice" ng-repeat="choice in choices" ng-click="changePage($index)" type="button">{{choice}}</button>
                 </div>
                 <div id="vote">
                     <div class="left">
