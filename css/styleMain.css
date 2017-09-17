@@ -258,3 +258,7 @@ body.modal-open div.modal-backdrop {
     z-index: 0; 
 }
 
+p {
+	text-indent: 2.0em;
+}
+

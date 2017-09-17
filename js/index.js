@@ -84,7 +84,7 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 
 	$scope.ifUserLoggedIn = false;
 	$scope.currentSection;
-	$scope.currentPageNumber = 0;
+	$scope.currentPageNumber = 1;
 	$scope.currentRating = 0;
 	$scope.choices;
 	$scope.choiceIndex;
@@ -214,6 +214,7 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 					$scope.storyTitle = node.title;
 					$scope.storyContent = node.nodeStory;
 					$scope.choices = node.choices;
+					$scope.currentPageNumber++;
 				});
 			}
 		});
