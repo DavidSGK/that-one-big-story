@@ -20,9 +20,23 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 	$scope.currentPageNumber = 1;
 	$scope.currentRating;
 	$scope.storyContent = 'A narrative or story is a report of connected events, real or imaginary, presented in a sequence of written or spoken words, or still or moving images,[1][2] or both. The word derives from the Latin verb narrare, "to tell", which is derived from the adjective gnarus, "knowing" or "skilled".[3] Narrative can be organized in a number of thematic or formal categories: non-fiction (such as definitively including creative non-fiction, biography, journalism, transcript poetry, and historiography); fictionalization of historical events (such as anecdote, myth, legend, and historical fiction); and fiction proper (such as literature in prose and sometimes poetry, such as short stories, novels, and narrative poems and songs, and imaginary narratives as portrayed in other textual forms, games, or live or recorded performances).';
+	$scope.currentPageNumber = 0;
+	$scope.currentRating = 0;
+	$scope.choices;
+	$scope.storyTitle;
+	$scope.storyContent;
 
 	angular.element(document).ready(function() {
-		//alert();
+		var start = nodeNav.getNode('tree_0', function(node) {
+			$scope.$apply(function() {
+				$scope.currentSection = node.nodeId;
+				$scope.storyTitle = node.title;
+				$scope.storyContent = node.nodeStory;
+				$scope.choices = node.choices;
+				$scope.currentRating = node.rating;
+			});
+		});
+		console.log('ready');
 	});
 
 	$scope.sidebarExpanded = false;
@@ -30,7 +44,16 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 	$scope.sidebarContent;
 	$scope.fontSize = 12;
 	$scope.nightMode = false;
-	$scope.storyStyle = { 'font-family': 'Helvetica', 'background-color': '#FDFDFD', 'color': '#000000', 'font-size': '12pt'};
+	$scope.lineHeight = 10/7;
+	$scope.pageStyle = {
+		'background-color': '#F5F5F5', 
+		'color': '#333333', 
+	}
+	$scope.storyStyle = { 
+		'font-family': 'Helvetica', 
+		'font-size': '12pt',
+		'line-height': 10/7
+	};
 
 	$scope.postTreeData = function(key, value) {
 
@@ -42,20 +65,32 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
     	this.value = data;
   	});
   	*/
+  	nodeNav.getNode('tree_0', function(val) { console.log(val); });
 	}
 
-	$scope.changePage = function(value) {
-		console.log()
+	$scope.changePage = function(key) {
+		nodeNav.nextNode($scope.currentSection, key, function(node) {
+			if (node === null) {
+				console.log('welp');
+			} else {
+				$scope.$apply(function () {
+					$scope.currentSection = node.nodeId;
+					$scope.storyTitle = node.title;
+					$scope.storyContent = node.nodeStory;
+					$scope.choices = node.choices;
+				});
+			}
+		});
 	}
 
 	// UI Functionality
 
-	$scope.reateUp = function() {
+	$scope.rateUp = function() {
 
 	}
 
 	$scope.rateDown = function() {
-
+		
 	}
 
 	$scope.report = function() {
@@ -93,6 +128,14 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 						'</div>'
 					);
 				break;
+			case 'lineHeight':
+				$scope.sidebarExpandedStyle = {'top': baseTop + ' + 144px)'};
+				$scope.sidebarContent = $sce.trustAsHtml(
+						'<div class="single-option slider-container">' +
+							'<input type="range" min="1" max="5" class="slider" ng-model="lineHeight" ng-change="changeLineHeight(lineHeight)"></input>' +
+						'</div>'
+					);
+				break;
 			default:
 				$scope.sidebarExpanded = false;
 				break;
@@ -111,11 +154,17 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 	}
 
 	$scope.setNightMode = function(toggle) {
+		$scope.nightMode = toggle;
 		if (toggle) {
-			$scope.storyStyle = Object.assign($scope.storyStyle, {'background-color': '#000000', 'color': '#FDFDFD'});
+			$scope.pageStyle = Object.assign($scope.storyStyle, {'background-color': '#333333', 'color': '#F5F5F5'});
 		} else {
-			$scope.storyStyle = Object.assign($scope.storyStyle, {'background-color': '#FDFDFD', 'color': '#000000'});
+			$scope.pageStyle = Object.assign($scope.storyStyle, {'background-color': '#F5F5F5', 'color': '#333333'});
 		}
+	}
+
+	$scope.changeLineHeight = function(value) {
+		$scope.lineHeight = value * 10 / 7;
+		$scope.storyStyle = Object.assign($scope.storyStyle, {'line-height': $scope.lineHeight});
 	}
 
 	$scope.openModal = function() {

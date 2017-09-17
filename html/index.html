@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 <script src="https://use.fontawesome.com/a87eb3984a.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
 
 <title>that-one-big-story</title>
   <!-- CSS -->
@@ -16,26 +17,8 @@
 
 </head>
 <body ng-controller="MainCtrl">
-    <script  src="../js/index.js"></script>
-
-    <style> 
-        #box {
-            background-color: whitesmoke;
-            margin: auto;
-            border: 5px solid lightgrey;
-            padding: 25px;
-            text-align: center;
-            position:relative;
-            top:50px;
-            border-radius:10px;
-        }
-        #buttonStoryChoices {
-            position:relative;
-            top: 100px;
-            margin:auto;
-            border-radius:10px;
-        }
-    </style>
+    <script src="../js/index.js"></script>
+    <script src="../js/backend.js"></script>
 
     <div id="myModal" class="modal">
 
@@ -55,31 +38,55 @@
 
 	</div>
     
+<<<<<<< HEAD
     <div class="container-fluid"  ng-style="storyStyle">
+=======
+    <div class="container-fluid" ng-style="pageStyle" ng-click="sidebarExpanded = false;">
+>>>>>>> cb8afa74e9a2f5833686a368d8c5c0b6d23200c1
         <div class="row">
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 left">
             	<div id="numberHolder">
             		{{currentPageNumber}}
             	</div>
             </div>
+<<<<<<< HEAD
             <div style="top:58px;left:70px" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <div id="story">
                     <div id="box">
                         <h3> Chapter </h3>
                         <p>{{storyContent}}</p>
+=======
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                <div class="content" ng-style="storyStyle">
+                    <h1 ng-bind="storyTitle"></h1>
+                    <p ng-repeat="paragraph in storyContent track by $index">{{paragraph}}</p>
+                </div>
+                <div id="choices">
+                    <button class="btn btn-block btn-primary" ng-repeat="choice in choices" ng-click="changePage($index)" type="button">{{choice}}</button>
+                </div>
+                <div id="vote">
+                    <div class="left">
+                        <span ng-click="rateUp()">
+                            <i class="fa fa-angle-up" style="color: blue" aria-hidden="true"></i>
+                        </span>
+                        <span ng-click="rateDown()">
+                            <i class="fa fa-angle-down" style="color: red" aria-hidden="true"></i>
+                        </span>
+                        <span>
+                            {{currentRating}}
+                        </span>
+>>>>>>> cb8afa74e9a2f5833686a368d8c5c0b6d23200c1
                     </div>
-                    <element id="buttonStoryChoices">
-                        <div class="span9 btn-block col-md-4 center-text" ng-repeat="suggestion in currentSuggestions">
-                            <button class="btn btn-large btn-block btn-primary btn-space" ng-click="changePage" type="button">{{suggestion}}</button>
-                        </div> 
-                    </element>
-                    <div id="subHolder">
-
-                    	<a href="http://www.google.ca"><u style="position:relative;top:220px;right:25%" > Report this story </u></a>
+                    <div class="right">
+                        <div id="report">
+                            <a href="http://www.google.ca"><u>Report this story</u></a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"><button ng-click="openModal()">Login</button></div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 right">
+                <button ng-click="openModal()">Login</button>
+            </div>
         </div>
     </div>
 
@@ -93,6 +100,9 @@
         </button>
         <button class="btn control-btn" ng-click="sidebarExpand('nightMode')">
             <i class="fa fa-adjust" aria-hidden="true"></i>
+        </button>
+        <button class="btn control-btn" ng-click="sidebarExpand('lineHeight')">
+            <i class="fa fa-text-height" aria-hidden="true"></i>
         </button>
     </aside>
 </body>
