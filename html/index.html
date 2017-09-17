@@ -17,6 +17,8 @@
 <body ng-controller="MainCtrl">
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
     <script src="../js/index.js"></script>
+
+
   	<!-- Modal content -->
     <div id="myModal" class="modal">
       <div class="modal-content">
@@ -47,15 +49,37 @@
  			<input type="password" ng-model="passwordSignUp" class="form-control" id="pwd">
         </div>
         <button id="signUpButton">Sign Up</button>
-  	</div>
+      </div>
+    </div>
+      <!-- Modal content -->
+    <div id="addStory" class="modal">  
+      <div class="modal-content">
+    	<span class="close" ng-click="closeAddStoryModal()">&times;</span>
+    	<div class="form-group">
+            <h3>Add Next Section</h3>
+                <label for="pwd">title:</label>
+ 	    		<input ng-model="title" class="form-control">
+              <label for="usr">Story:</label>
+              <textarea class="form-control" rows="5" id="comment" type="text" class="form-control" id="usr" ng-model="newStory"></textarea>
+		</div>
+		<div class="form-group">
+            <label for="pwd">Choices:</label>
+            <ul id="choice-container">
+            </ul>  
+            <input class="form-control" ng-model="choiceField" id="pwd">
+            <button id="addChoiceButton">Add choice</button> 
+        </div>
+        <button id="addStoryButton">Add section</button>
+      </div>
+    </div>
 
-	</div>
+    
     
     <div class="container-fluid" ng-style="pageStyle" ng-click="sidebarExpanded = false;">
         <div class="row">
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 left">
             	<div id="numberHolder">
-            		 {{currentPageNumber}} 
+            		{{currentPageNumber}}
             	</div>
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
@@ -64,10 +88,10 @@
                     <p ng-repeat="paragraph in storyContent track by $index">{{paragraph}}</p>
                 </div>
                 <div id="choices">
-                    <button class="btn btn-block btn-primary buttonChoice" ng-repeat="choice in choices" ng-click="changePage($index)" type="button">{{choice}}</button>
+                    <button class="btn btn-block btn-primary" ng-repeat="choice in choices" ng-click="changePage($index)" type="button">{{choice}}</button>
                 </div>
                 <div id="vote">
-                    <div class="left"> 
+                    <div class="left">
                         <span ng-click="rateUp()">
                             <i class="fa fa-angle-up" style="color: blue" aria-hidden="true"></i>
                         </span>
