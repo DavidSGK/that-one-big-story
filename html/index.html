@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 <script src="https://use.fontawesome.com/a87eb3984a.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
 
 <title>that-one-big-story</title>
   <!-- CSS -->
@@ -14,7 +15,8 @@
 
 </head>
 <body ng-controller="MainCtrl">
-    <script  src="../js/index.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/backend.js"></script>
 
     <div id="myModal" class="modal">
 
@@ -43,17 +45,23 @@
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                 <div class="content" ng-style="storyStyle">
-                    <h1>Chapter</h1>
-                    <p>{{storyContent}}</p>
+                    <h1 ng-bind="storyTitle"></h1>
+                    <p ng-repeat="paragraph in storyContent track by $index">{{paragraph}}</p>
                 </div>
                 <div id="choices">
-                    <button class="btn btn-block btn-primary" ng-repeat="suggestion in currentSuggestions" ng-click="changePage" type="button">{{suggestion}}</button>
+                    <button class="btn btn-block btn-primary" ng-repeat="choice in choices" ng-click="changePage($index)" type="button">{{choice}}</button>
                 </div>
                 <div id="vote">
                     <div class="left">
-                        <i class="fa fa-angle-up" style="color: blue" aria-hidden="true"></i>
-                        <i class="fa fa-angle-down" style="color: red" aria-hidden="true"></i>
-                        {{currentRating}}
+                        <span ng-click="rateUp()">
+                            <i class="fa fa-angle-up" style="color: blue" aria-hidden="true"></i>
+                        </span>
+                        <span ng-click="rateDown()">
+                            <i class="fa fa-angle-down" style="color: red" aria-hidden="true"></i>
+                        </span>
+                        <span>
+                            {{currentRating}}
+                        </span>
                     </div>
                     <div class="right">
                         <div id="report">

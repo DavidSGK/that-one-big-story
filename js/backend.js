@@ -40,11 +40,13 @@ var userAuthentication = {
 
 }
 
-var Node = function(nodeStory, nodeId, parentId, numberOfChildren){
-    this.nodeStory = nodeStory;
-    this.nodeId = nodeId;
-    this.parentId = parentId;
-    this.numberOfChildren = numberOfChildren;
+var Node = function(title, nodeStory, nodeId, parentId, choices) {
+    this.title = title; // The title of this chapter/section
+    this.nodeStory = nodeStory; // The story, an array (for linebreaks)
+    this.nodeId = nodeId;   // The id of the node in the tree
+    this.parentId = parentId;   // The parent node's id
+    this.choices = choices; // The choices at the end of this section, an array
+    this.rating = 0; // rating of section is initialized to 0 by default
 }
 
 var nodeNav = {
@@ -53,9 +55,9 @@ var nodeNav = {
         return dataTransfer.loadData(nodeId, callback);
     },
     
-    createNode : function(nodeStory, parentId, childNum, numberOfChildren){
+    createNode : function(title, nodeStory, parentId, childNum, choices){
         var nodeId = parentId + '_' + childNum;
-        var newNode = new Node(nodeStory, nodeId, parentId, numberOfChildren);
+        var newNode = new Node(title, nodeStory, nodeId, parentId, choices);
         dataTransfer.addData(newNode);
     },
 
