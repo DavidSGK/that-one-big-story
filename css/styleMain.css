@@ -148,6 +148,9 @@ button {
 #numberHolder {
 	font-size: 75px;
 }
+body {
+	background-color: whitesmoke
+}
 
 .top5 { margin-top:5px; }
 .top7 { margin-top:7px; }
@@ -235,6 +238,22 @@ button {
     background: #333333;
     cursor: pointer;
 }
+
+.buttonChoice {
+	 background-color: white !important;
+	 color: #333 !important;
+	 border-radius: 2px;
+	 box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.buttonChoice:hover {
+	 background-color: rgba(0, 0, 0, 0.01) !important;
+	 color: #333;
+}
+
+.buttonChoice:focus {
+ 	 outline: 0 !important;
+
 body.modal-open div.modal-backdrop { 
     z-index: 0; 
 }
