@@ -30,7 +30,16 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 	$scope.sidebarContent;
 	$scope.fontSize = 12;
 	$scope.nightMode = false;
-	$scope.storyStyle = { 'font-family': 'Helvetica', 'background-color': '#F5F5F5', 'color': '#333333', 'font-size': '12pt'};
+	$scope.lineHeight = 10/7;
+	$scope.pageStyle = {
+		'background-color': '#F5F5F5', 
+		'color': '#333333', 
+	}
+	$scope.storyStyle = { 
+		'font-family': 'Helvetica', 
+		'font-size': '12pt',
+		'line-height': 10/7
+	};
 
 	$scope.postTreeData = function(key, value) {
 
@@ -93,6 +102,14 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 						'</div>'
 					);
 				break;
+			case 'lineHeight':
+				$scope.sidebarExpandedStyle = {'top': baseTop + ' + 144px)'};
+				$scope.sidebarContent = $sce.trustAsHtml(
+						'<div class="single-option slider-container">' +
+							'<input type="range" min="1" max="5" class="slider" ng-model="lineHeight" ng-change="changeLineHeight(lineHeight)"></input>' +
+						'</div>'
+					);
+				break;
 			default:
 				$scope.sidebarExpanded = false;
 				break;
@@ -113,10 +130,15 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 	$scope.setNightMode = function(toggle) {
 		$scope.nightMode = toggle;
 		if (toggle) {
-			$scope.storyStyle = Object.assign($scope.storyStyle, {'background-color': '#333333', 'color': '#F5F5F5'});
+			$scope.pageStyle = Object.assign($scope.storyStyle, {'background-color': '#333333', 'color': '#F5F5F5'});
 		} else {
-			$scope.storyStyle = Object.assign($scope.storyStyle, {'background-color': '#F5F5F5', 'color': '#333333'});
+			$scope.pageStyle = Object.assign($scope.storyStyle, {'background-color': '#F5F5F5', 'color': '#333333'});
 		}
+	}
+
+	$scope.changeLineHeight = function(value) {
+		$scope.lineHeight = value * 10 / 7;
+		$scope.storyStyle = Object.assign($scope.storyStyle, {'line-height': $scope.lineHeight});
 	}
 
 	$scope.openModal = function() {

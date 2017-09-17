@@ -34,7 +34,7 @@
 
 	</div>
     
-    <div class="container-fluid" ng-style="storyStyle" ng-click="sidebarExpanded = false;">
+    <div class="container-fluid" ng-style="pageStyle" ng-click="sidebarExpanded = false;">
         <div class="row">
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 left">
             	<div id="numberHolder">
@@ -42,7 +42,7 @@
             	</div>
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                <div class="content">
+                <div class="content" ng-style="storyStyle">
                     <h1>Chapter</h1>
                     <p>{{storyContent}}</p>
                 </div>
@@ -69,6 +69,9 @@
         </button>
         <button class="btn control-btn" ng-click="sidebarExpand('nightMode')">
             <i class="fa fa-adjust" aria-hidden="true"></i>
+        </button>
+        <button class="btn control-btn" ng-click="sidebarExpand('lineHeight')">
+            <i class="fa fa-text-height" aria-hidden="true"></i>
         </button>
     </aside>
 </body>

@@ -92,7 +92,7 @@ button {
 #sidebar-expansion .single-option {
   width: 192px;
   height: 48px;
-  padding-left: 8px;
+  padding: 0 8px;
   font-size: 16px;
   line-height: 48px;
   user-select: none;
@@ -177,5 +177,42 @@ button {
 .close:focus {
     color: black;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 176px;
+    height: 16px;
+    background: #D3D3D3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: #333333;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: #333333;
     cursor: pointer;
 }
