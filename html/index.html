@@ -24,6 +24,24 @@
             border-radius:10px;
         }
     </style>
+
+    <div id="myModal" class="modal">
+
+  	<!-- Modal content -->
+  	<div class="modal-content">
+    	<span class="close" ng-click="closeModal()">&times;</span>
+    	<div class="form-group">
+    		<h3>Login/Register</h3>
+  			<label for="usr">Username:</label>
+  			<input type="text" class="form-control" id="usr">
+		</div>
+		<div class="form-group">
+  			<label for="pwd">Password:</label>
+ 			<input type="password" class="form-control" id="pwd">
+		</div>
+  	</div>
+
+	</div>
     
     <div class="container-fluid" ng-style="storyStyle" ng-click="sidebarExpanded = false;">
         <div class="row">
@@ -46,7 +64,7 @@
                     <a href="http://www.google.ca"><u style="position:relative;top:220px;right:25%" > Report this story </u></a>
                 </div>
             </div>
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"><button ng-click="openModal()">Login</button></div>
         </div>
     </div>
 
