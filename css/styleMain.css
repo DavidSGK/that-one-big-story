@@ -235,3 +235,7 @@ button {
     background: #333333;
     cursor: pointer;
 }
+body.modal-open div.modal-backdrop { 
+    z-index: 0; 
+}
+
