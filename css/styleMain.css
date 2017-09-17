@@ -2,21 +2,6 @@
   box-sizing: border-box;
 }
 
-.col-l {
-  flex-grow: 1;
-  flex-basis: 25%;
-}
-
-.col-m {
-  flex-grow: 2;
-  flex-basis: 50%;
-}
-
-.col-r {
-  flex-grow: 1;
-  flex-basis: 25%;
-}
-
 .content {
   padding: 8px;
 }

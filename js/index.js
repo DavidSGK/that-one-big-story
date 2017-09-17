@@ -30,7 +30,7 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 	$scope.sidebarContent;
 	$scope.fontSize = 12;
 	$scope.nightMode = false;
-	$scope.storyStyle = { 'font-family': 'Helvetica', 'background-color': '#FDFDFD', 'color': '#000000', 'font-size': '12pt'};
+	$scope.storyStyle = { 'font-family': 'Helvetica', 'background-color': '#FDFDFD', 'color': '#333333', 'font-size': '12pt'};
 
 	$scope.postTreeData = function(key, value) {
 
@@ -112,9 +112,9 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 
 	$scope.setNightMode = function(toggle) {
 		if (toggle) {
-			$scope.storyStyle = Object.assign($scope.storyStyle, {'background-color': '#000000', 'color': '#FDFDFD'});
+			$scope.storyStyle = Object.assign($scope.storyStyle, {'background-color': '#333333', 'color': '#FDFDFD'});
 		} else {
-			$scope.storyStyle = Object.assign($scope.storyStyle, {'background-color': '#FDFDFD', 'color': '#000000'});
+			$scope.storyStyle = Object.assign($scope.storyStyle, {'background-color': '#FDFDFD', 'color': '#333333'});
 		}
 	}
 
