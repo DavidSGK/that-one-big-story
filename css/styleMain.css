@@ -238,6 +238,7 @@ body {
     background: #333333;
     cursor: pointer;
 }
+<<<<<<< HEAD
 
 .buttonChoice {
 	 background-color: white !important;
@@ -253,5 +254,8 @@ body {
 
 .buttonChoice:focus {
  	 outline: 0 !important;
+
+body.modal-open div.modal-backdrop { 
+    z-index: 0; 
 }
 

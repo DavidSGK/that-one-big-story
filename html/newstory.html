@@ -26,7 +26,7 @@
     text-align: center;
     position:relative;
     top:50px;
-    left:18%;
+    left:10%;
     border-radius:15px;
 }
 #buttonStoryChoices {
@@ -68,8 +68,8 @@
     <div class="container">
   <!-- Trigger the modal with a button -->
 <div class="span9 btn-block col-md-4 center-text">
-            <button style="padding:5px;margin-bottom:6px;" data-toggle="modal" data-target="#myModal" class="btn btn-large btn-block btn-primary btn-space" type="button">Add Option #1</button>
-        </div>
+ <button style="padding:5px;margin-bottom:6px;" data-toggle="modal" data-target="#myModal" class="btn btn-large btn-block btn-primary btn-space" type="button">Add Option #1</button>
+</div>
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -101,11 +101,12 @@
     <div class="container">
   <!-- Trigger the modal with a button -->
 <div class="span9 btn-block col-md-4 center-text">
-            <button data-toggle="modal" data-target="#myModal" class="btn btn-large btn-block btn-primary btn-space" type="button">Add Option #2</button>
-        </div>
+ <button data-toggle="modal" data-target="#myModal" class="btn btn-large btn-block btn-primary btn-space" type="button">Add Option #2</button>
+</div>
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
+
     
       <!-- Modal content-->
       <div class="modal-content">
@@ -134,13 +135,13 @@
   <!-- Trigger the modal with a button -->
 <div class="span9 btn-block col-md-4 center-text">
             <button data-toggle="modal" data-target="#myModal" class="btn btn-large btn-block btn-primary btn-space" type="button">Add Option #3</button>
-        </div>
+</div>
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
-      <div class="modal-content">
+     <div class="modal-content">
         <div class="modal-header">
          
         <div class="modal-body">
@@ -154,17 +155,30 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+       </div>
       </div>
-      
-    </div>
+     </div>
   </div>
   </div>
 </div>
 </div>
-</element>
 
-<a href="http://www.google.ca"> <u style="position:relative;top:220px;right:300px" > Report this story </u> </a>
+<aside class="controls">
+        <div id="sidebar-expansion" ng-style="sidebarExpandedStyle" ng-if="sidebarExpanded" dynamic="sidebarContent"></div>
+        <button class="btn control-btn" ng-click="sidebarExpand('font')">
+            <i class="fa fa-font" aria-hidden="true"></i>
+        </button>
+        <button class="btn control-btn" ng-click="sidebarExpand('fontSize')">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+        </button>
+        <button class="btn control-btn" ng-click="sidebarExpand('nightMode')">
+            <i class="fa fa-adjust" aria-hidden="true"></i>
+        </button>
+        <button class="btn control-btn" ng-click="sidebarExpand('lineHeight')">
+            <i class="fa fa-text-height" aria-hidden="true"></i>
+        </button>
+        </div>
+    </aside>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
