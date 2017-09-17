@@ -38,25 +38,25 @@
     
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            	<div id="numberHolder">
+            		{{currentPageNumber}}
+            	</div>
+            </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <div id="box">
                     <h3> Chapter </h3>
-                    <p>The story goes in this box.</p>
+                    <p>{{storyContent}}</p>
                 </div>
                 <element id="buttonStoryChoices">
-                    <div class="span9 btn-block col-md-4 center-text">
-                        <button class="btn btn-large btn-block btn-primary btn-space" type="button">Block level button</button>
-                    </div>
-                    <div class="span9 btn-block col-md-4 center-text">
-                        <button class="btn btn-large btn-block btn-primary btn-space" type="button">Block level button</button>
-                    </div>
-                    <div class="span9 btn-block col-md-4 center-text">
-                        <button class="btn btn-large btn-block btn-primary" type="button">Block level button</button>
-                    </div>
+                    <div class="span9 btn-block col-md-4 center-text" ng-repeat="suggestion in currentSuggestions">
+                        <button class="btn btn-large btn-block btn-primary btn-space" ng-click="changePage" type="button">{{suggestion}}</button>
+                    </div> 
                 </element>
+                <div id="subHolder">
 
-                <a href="http://www.google.ca"><u style="position:relative;top:220px;right:25%" > Report this story </u></a>
+                	<a href="http://www.google.ca"><u style="position:relative;top:220px;right:25%" > Report this story </u></a>
+                </div>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
         </div>
