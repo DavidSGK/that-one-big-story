@@ -5,10 +5,17 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 	$scope.currentSection;
 	$scope.currentSuggestions = [];
 	$scope.currentRating;
+<<<<<<< HEAD
+
+	angular.element(document).ready(function() {
+		//alert();
+	});
+=======
 	$scope.sidebarExpanded = false;
 	$scope.sidebarExpandedStyle;
 	$scope.sidebarContent;
 	$scope.fontSize = 14;
+>>>>>>> 84caa9703bc29bd2b4045dab5a07f634d26f51da
 
 	$scope.postTreeData = function(key, value) {
 
