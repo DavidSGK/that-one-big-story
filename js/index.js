@@ -28,9 +28,9 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 	$scope.sidebarExpanded = false;
 	$scope.sidebarExpandedStyle;
 	$scope.sidebarContent;
-	$scope.fontSize = 14;
+	$scope.fontSize = 12;
 	$scope.nightMode = false;
-	$scope.storyStyle = { 'font-family': 'Helvetica', 'background-color': '#FDFDFD', 'color': '#000000'};
+	$scope.storyStyle = { 'font-family': 'Helvetica', 'background-color': '#FDFDFD', 'color': '#000000', 'font-size': '12pt'};
 
 	$scope.postTreeData = function(key, value) {
 
@@ -79,7 +79,10 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 			case 'fontSize':
 				$scope.sidebarExpandedStyle = {'top': baseTop + ' + 48px)'};
 				$scope.sidebarContent = $sce.trustAsHtml(
-						'<div>' + $scope.fontSize + '</div>'
+						'<div class="single-option" id="font-size">' +
+							'Font Size: ' +
+							'<input type="number" min="4" max="40" ng-model="fontSize" ng-change=changeFontSize(fontSize)></input>' +
+						'</div>'
 					);
 				break;
 			case 'nightMode':
@@ -102,13 +105,19 @@ mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scop
 	}
 
 	$scope.changeFontSize = function(size) {
-
+		$scope.fontSize = size;
+		console.log($scope.fontSize);
+		$scope.storyStyle = Object.assign($scope.storyStyle, {'font-size': size + 'pt'});
 	}
 
 	$scope.setNightMode = function(toggle) {
 		if (toggle) {
-			// somethin
+			$scope.storyStyle = Object.assign($scope.storyStyle, {'background-color': '#000000', 'color': '#FDFDFD'});
+		} else {
+			$scope.storyStyle = Object.assign($scope.storyStyle, {'background-color': '#FDFDFD', 'color': '#000000'});
 		}
 	}
 
 }]);
+
+
