@@ -15,23 +15,40 @@
 
 </head>
 <body ng-controller="MainCtrl">
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
     <script src="../js/index.js"></script>
-    <script src="../js/backend.js"></script>
 
-    <div id="myModal" class="modal">
 
   	<!-- Modal content -->
-  	<div class="modal-content">
+    <div id="myModal" class="modal">
+      <div class="modal-content">
     	<span class="close" ng-click="closeModal()">&times;</span>
     	<div class="form-group">
-    		<h3>Login/Register</h3>
+    		<h3>Login</h3>
   			<label for="usr">Username:</label>
-  			<input type="text" class="form-control" id="usr">
+  			<input type="text" class="form-control" id="usr" ng-model="username">
 		</div>
 		<div class="form-group">
   			<label for="pwd">Password:</label>
- 			<input type="password" class="form-control" id="pwd">
+ 			<input type="password" ng-model="password" class="form-control" id="pwd">
+        </div>
+        <button id="loginButton">Sign Up</button>
+      </div>
+    </div>
+      <!-- Modal content -->
+    <div id="addUser" class="modal">  
+      <div class="modal-content">
+    	<span class="close" ng-click="closeAddUserModal()">&times;</span>
+    	<div class="form-group">
+    		<h3>Create New User</h3>
+  			<label for="usr">Email:</label>
+  			<input type="text" class="form-control" id="usr" ng-model="usernameSignUp">
 		</div>
+		<div class="form-group">
+  			<label for="pwd">Password:</label>
+ 			<input type="password" ng-model="passwordSignUp" class="form-control" id="pwd">
+        </div>
+        <button id="signUpButton">Sign Up</button>
   	</div>
 
 	</div>
@@ -71,7 +88,8 @@
                 </div>
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 right">
-                <button ng-click="openModal()">Login</button>
+                <button ng-click="openModal()" ng-hide="ifUserLoggedIn">Login</button><button ng-click="addUserModal()" ng-hide="ifUserLoggedIn">Sign In</button>
+                <button ng-click="logout()" ng-hide="!ifUserLoggedIn">Logout</button><div ng-hide="!ifUserLoggedIn">{{emailOfUser}}</div>
             </div>
         </div>
     </div>
