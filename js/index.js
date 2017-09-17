@@ -1,14 +1,14 @@
 var mainApp = angular.module('mainApp',[]);
 
-mainApp.controller('MainCtrl', ['$http', '$scope', function($http, $scope){
+mainApp.controller('MainCtrl', ['$http', '$scope', '$sce', function($http, $scope, $sce) {
 
 	$scope.currentSection;
 	$scope.currentSuggestions = [];
 	$scope.currentRating;
-
-	angular.element(document).ready(function() {
-		alert();
-	});
+	$scope.sidebarExpanded = false;
+	$scope.sidebarExpandedStyle;
+	$scope.sidebarContent;
+	$scope.fontSize = 14;
 
 	$scope.postTreeData = function(key, value) {
 
@@ -40,8 +40,38 @@ mainApp.controller('MainCtrl', ['$http', '$scope', function($http, $scope){
 
 	}
 
-	$scope.changeFont = function(size){
+	$scope.sidebarExpand = function(type) {
+		var baseTop = 'calc(50vh - 124px';
+		$scope.sidebarExpanded = true;
+		switch(type) {
+			case 'font':
+				$scope.sidebarExpandedStyle = {'top': baseTop + ')'};
+				break;
+			case 'fontSize':
+				$scope.sidebarExpandedStyle = {'top': baseTop + ' + 48px)'};
+				$scope.sidebarContent = $sce.trustAsHtml(
+						'<div>' + $scope.fontSize + '</div>'
+					);
+				break;
+			case 'nightMode':
+				$scope.sidebarExpandedStyle = {'top': baseTop + ' + 96px)'};
+				break;
+			default:
+				$scope.sidebarExpandedStyle = {'top': baseTop + ' + 144px)'};
+				break;
+		}
+	}
+
+	$scope.changeFont = function(font) {
 
 	}
 
-}])
+	$scope.changeFontSize = function(size) {
+
+	}
+
+	$scope.setNightMode = function(boolean) {
+
+	}
+
+}]);
