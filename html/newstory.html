@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html ng-app="mainApp">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>that-one-big-story</title>
+  <!-- CSS -->
+<link href="../css/styleMain.css" rel="stylesheet">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<link rel="stylesheet" href="fontawesome-stars.css">
+
+</head>
+
+<body>
+ <style> 
+#box {
+    background-color: whitesmoke;
+    margin: auto;
+    width: 50%;
+    border: 5px solid lightgrey;
+    padding: 50px;
+    text-align: center;
+    position:relative;
+    top:50px;
+    left:18%;
+    border-radius:15px;
+}
+#buttonStoryChoices {
+    position:relative;
+    top: 100px;
+    margin:auto;
+    left:37%;
+    border-radius:10px;
+}
+#backButton {
+    position:relative;
+    top: 10px;
+    left:3%;
+}
+
+#example {
+    position: relative;
+    top: 220px;
+}
+
+
+</style>
+<element id="backButton">
+<div class="span9 col-md-4 center-text">
+    <button class="btn btn-medium btn-primary btn-space" type="button">Go Back</button>
+</div>
+</element>
+<div id="box">
+    <form>
+        <div class="form-group">
+            <label for="comment" style="text-align:center">Continue the story yourself!</label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
+
+<element id="buttonStoryChoices" >
+    <div class="container">
+  <!-- Trigger the modal with a button -->
+<div class="span9 btn-block col-md-4 center-text">
+            <button style="padding:5px;margin-bottom:6px;" data-toggle="modal" data-target="#myModal" class="btn btn-large btn-block btn-primary btn-space" type="button">Add Option #1</button>
+        </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+         
+        <div class="modal-body">
+          <form>
+        <div class="form-group">
+            <label for="comment" style="text-align:center">What does this path entail?</label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+    
+    <div class="container">
+  <!-- Trigger the modal with a button -->
+<div class="span9 btn-block col-md-4 center-text">
+            <button data-toggle="modal" data-target="#myModal" class="btn btn-large btn-block btn-primary btn-space" type="button">Add Option #2</button>
+        </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+         
+        <div class="modal-body">
+          <form>
+        <div class="form-group">
+            <label for="comment" style="text-align:center">What'</label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+    <div class="container">
+  <!-- Trigger the modal with a button -->
+<div class="span9 btn-block col-md-4 center-text">
+            <button data-toggle="modal" data-target="#myModal" class="btn btn-large btn-block btn-primary btn-space" type="button">Add Option #3</button>
+        </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+         
+        <div class="modal-body">
+          <form>
+        <div class="form-group">
+            <label for="comment" style="text-align:center">Continue the story yourself!</label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</element>
+
+<a href="http://www.google.ca"> <u style="position:relative;top:220px;right:300px" > Report this story </u> </a>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<!-- CSS -->
+<link href="../css/style.css" rel="stylesheet">
+
+</head>
+
+<body ng-controller="MainCtrl">
+
+    <!-- js files -->
+    <script  src="../js/index.js"></script>
+
+</body>
+</html>
