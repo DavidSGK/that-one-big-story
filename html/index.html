@@ -49,8 +49,17 @@
                 <div id="choices">
                     <button class="btn btn-block btn-primary" ng-repeat="suggestion in currentSuggestions" ng-click="changePage" type="button">{{suggestion}}</button>
                 </div>
-                <div id="subHolder">
-                    <a href="http://www.google.ca"><u>Report this story</u></a>
+                <div id="vote">
+                    <div class="left">
+                        <i class="fa fa-angle-up" style="color: blue" aria-hidden="true"></i>
+                        <i class="fa fa-angle-down" style="color: red" aria-hidden="true"></i>
+                        {{currentRating}}
+                    </div>
+                    <div class="right">
+                        <div id="report">
+                            <a href="http://www.google.ca"><u>Report this story</u></a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 right">

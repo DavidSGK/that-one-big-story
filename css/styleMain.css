@@ -26,6 +26,23 @@ body {
   padding: 8px;
 }
 
+#vote {
+  display: flex;
+  font-size: 32px;
+  line-height: 32px;
+  padding: 8px;
+}
+
+#vote > .left {
+  flex-grow: 1;
+}
+
+#vote > .right {
+  flex-grow: 1;
+  font-size: 16px;
+  text-align: right;
+}
+
 .controls {
   position: fixed;
   top: calc(50% - 128px);
